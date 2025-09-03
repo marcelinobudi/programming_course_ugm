@@ -21,7 +21,7 @@ double third_option(double net_price, int predicted_copies_sold) {
     const float bonus = 0.14;
     double profit = FEE_RATE * net_price;
     double royalty = profit * 4'000;
-    
+
     royalty = (predicted_copies_sold <= 4000) ? royalty : royalty + (predicted_copies_sold - 4'000) * bonus * net_price;
 
     return royalty;
@@ -58,6 +58,9 @@ int main(int argc, char const *argv[])
         recomended_royalty == royalty_third_option &&
         "Terdapat kesalahan kalkulasi"
     );
+
+    // unit testing
+    assert(first_option() == 25000);
     
     cout << fixed << setprecision(2);
     cout << "Royalti opsi pertama: " << royalty_first_option << endl;
@@ -75,6 +78,7 @@ int main(int argc, char const *argv[])
 
     cout << "Royalti tertinggi: " << recomended_royalty;
     
+
 
     return 0;
 }
