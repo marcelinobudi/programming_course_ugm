@@ -5,6 +5,8 @@ int main(int argc, char const *argv[])
 {
     char sex;
     double weight;
+    double a1, a2, a3, a4, a5;
+    double wrist_size, waist_size, hip_size, lower_arm_size;
     
     double b;
     float body_fat;
@@ -13,11 +15,13 @@ int main(int argc, char const *argv[])
     cout << "Anda laki-laki atau perempuan? (l/p): ";
     cin >> sex;
 
+    cout << "Masukkan berat badan anda: ";
+    cin >> weight;
+
     switch (sex)
     {
     case 'l':
-        double a1, a2;
-        double waist_size;
+        
         cout << "Masukkan panjang lingkar pinggang anda: ";
         cin >> waist_size;
 
@@ -28,9 +32,6 @@ int main(int argc, char const *argv[])
         break;
     
     case 'p':
-        double a1, a2, a3, a4, a5;
-        double wrist_size, waist_size, hip_size, lower_arm_size;
-
         cout << "Masukkan panjang lingkar pergelangan tangan anda: ";
         cin >> wrist_size;
         cout << "Masukkan panjang lingkar pinggang anda: ";
@@ -51,7 +52,7 @@ int main(int argc, char const *argv[])
 
     default:
         cout << "Input yg anda masukkan salah!" << endl;
-        break;
+        return 0;
     }
 
     body_fat =  weight - b;
