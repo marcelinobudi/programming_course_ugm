@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cassert>
 #include <cmath>
+#include <string>
 using namespace std;
 
 string binaryConvertion(int decimal) {
