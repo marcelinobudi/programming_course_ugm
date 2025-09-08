@@ -40,7 +40,6 @@ int main(int argc, char const *argv[])
             
             b = a1 - a2;
 
-            cout << a1 << " " << a2 << " " << b;
             break;
         
         case 'p':
@@ -74,6 +73,11 @@ int main(int argc, char const *argv[])
     body_fat =  weight - b;
     fat_percentage = (body_fat * 100) / weight;
 
+    if(body_fat < 0 || fat_percentage < 0) {
+        cout << "Terdapat kesalahan";
+        return 0;
+    }
+    
     cout << "HASIL:" << endl;
     cout << "Lemak tubuh: " << body_fat << endl;
     cout << "Persentase lemak tubuh: " << fat_percentage << endl;
