@@ -20,9 +20,13 @@ double third_option(double net_price, int predicted_copies_sold) {
     const float FEE_RATE = 0.10;
     const float bonus = 0.14;
     double profit = FEE_RATE * net_price;
-    double royalty = profit * 4'000;
+    double royalty;
 
-    royalty = (predicted_copies_sold <= 4000) ? royalty : royalty + (predicted_copies_sold - 4'000) * bonus * net_price;
+    if(predicted_copies_sold > 4'000) {
+        royalty = 0.1 * net_price * 4000  + bonus * (predicted_copies_sold - 4'000) * net_price;
+    } else {
+        royalty = 0.1 * predicted_copies_sold * net_price;
+    }
 
     return royalty;
 }
@@ -61,6 +65,8 @@ int main(int argc, char const *argv[])
 
     // unit testing
     assert(first_option() == 25000);
+    assert(second_option(25, 2000) == 0.125 * 25 * 2000);
+    assert(third_option(25, 2000) == 0.10 * 25 * 2000);
     
     cout << fixed << setprecision(2);
     cout << "Royalti opsi pertama: " << royalty_first_option << endl;
