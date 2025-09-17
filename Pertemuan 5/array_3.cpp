@@ -13,8 +13,10 @@ int main(int argc, char const *argv[])
     // combining with enumeration
     enum carType {GM, BMW};
     enum color{RED, WHITE, BLUE};
+    
     int inStock[5][5];
     inStock[GM][RED] = 5;
+    cout << BMW <<endl;
 
     return 0;
 }
