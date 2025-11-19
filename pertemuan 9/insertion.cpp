@@ -6,31 +6,44 @@ void swap(int &a, int &b) {
     b = temp;
 }
 
-void insertionSort(int arr[], int n) {
+// void insertionSort(int arr[], int n) {
 
-    for(int i = 1; i < n; i++) {
-        int key = arr[i];
+//     for(int i = 1; i < n; i++) {
+//         int key = arr[i];
+//         int j = i-1;
+//         while(j >=0 && arr[j] > key) {
+//             arr[j+1] = arr[j];
+//             j--;
+//         }
+//         arr[j+1] = key; //proses insertion
+//     }
+// }
+
+void insertionSort(int arr[], int n) {
+    for(int i = 1; i < n; i++){
+        int k = arr[i];
         int j = i-1;
-        while(j >=0 && arr[j] > key) {
+        while(j >=0 && arr[j] > k) {
             arr[j+1] = arr[j];
             j--;
         }
-        arr[j+1] = key; //proses insertion
+        arr[i] = arr[j+1];
+        arr[j+1] = k;
     }
 }
 int main() {
-    const int n = 5;
-    int arr[n] = {7,3,5,3,1};
+    int arr[] = {7,3,5,3,1};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
-    for(int i = 1; i < n; i++) {
-        for(int j = i; j > 0; j--){
-            if(arr[j-1]> arr[j]) {
-                swap(arr[j], arr[j-1]);
-            } else {
-                break;
-            }
-        }
-    }
+    // for(int i = 1; i < n; i++) {
+    //     for(int j = i; j > 0; j--){
+    //         if(arr[j-1]> arr[j]) {
+    //             swap(arr[j], arr[j-1]);
+    //         } else {
+    //             break;
+    //         }
+    //     }
+    // }
 
     for(int ar: arr) {
         cout << ar << endl;
