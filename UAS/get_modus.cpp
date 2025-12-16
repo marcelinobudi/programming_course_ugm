@@ -15,25 +15,21 @@ void sort(int arr[], int n) {
 
 int getmodus(int arr[], int n){
     sort(arr, n);
-    int most_num = arr[0];
-    int num_temp = arr[0];
-    int frequency_most = 1;
+    int most_num = arr[0]; // Angka dengan frekuensi paling banyak
+    int num_temp = arr[0]; // angka sementara
+    int frequency_most = 1; // jumlah frekuensi terbanyak
     int frequency_temp = 1;
     
     for(int i = 1; i < n; i++){
 
         if(arr[i] == num_temp){
             frequency_temp++;
-            if(frequency_most < frequency_temp){
-                frequency_most = frequency_temp;
-                most_num = num_temp;
-            }
+        }
+        if(frequency_most < frequency_temp){
+            frequency_most = frequency_temp;
+            most_num = num_temp;
         }
         if(arr[i] != num_temp){
-            if(frequency_most < frequency_temp){
-                frequency_most = frequency_temp;
-                most_num = num_temp;
-            }
             frequency_temp = 1;
             num_temp = arr[i];
         }
